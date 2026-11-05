@@ -15,7 +15,6 @@ def fibonacci(n):
 
     return sequencia
 
-
 def eh_primo(numero):
     if numero < 2:
         return False
@@ -29,7 +28,6 @@ def eh_primo(numero):
 
     return primo
 
-
 def primos_ate(n):
     primos = []
 
@@ -38,7 +36,6 @@ def primos_ate(n):
             primos.append(numero)
 
     return primos
-
 
 def tabuada(n):
     resultados = []
@@ -49,7 +46,6 @@ def tabuada(n):
 
     return resultados
 
-
 def somar_lista(lista):
     total = 0
 
@@ -58,23 +54,19 @@ def somar_lista(lista):
 
     return total
 
-
 def media_lista(lista):
-    # Evita dividir por zero quando a lista está vazia.
+    # Uma lista vazia não tem média.
     if len(lista) == 0:
         return None
 
     return somar_lista(lista) / len(lista)
 
-
 def adicionar_historico(historico, sequencia):
-    # Modifica a lista recebida por parâmetro.
+    # Acrescenta a sequência à lista recebida.
     historico.append(sequencia)
-
 
 historico = []
 
-# Repete o menu até o usuário escolher sair.
 while True:
     print("\nGERADOR DE SEQUÊNCIAS")
     print("1 - Fibonacci")
@@ -104,8 +96,15 @@ while True:
         else:
             entrada = input("Tabuada de qual número? ")
 
-        # isdigit verifica se o texto contém apenas dígitos.
-        if entrada.isdigit():
+        # Conta os caracteres que são dígitos.
+        digitos = 0
+
+        for caractere in entrada:
+            if caractere in "0123456789":
+                digitos = digitos + 1
+
+        # A entrada precisa ter somente dígitos e não ser vazia.
+        if len(entrada) > 0 and digitos == len(entrada):
             n = int(entrada)
 
             if n == 0:
@@ -114,10 +113,8 @@ while True:
             else:
                 if opcao == "1":
                     lista = fibonacci(n)
-
                 elif opcao == "2":
                     lista = primos_ate(n)
-
                 else:
                     lista = tabuada(n)
 
