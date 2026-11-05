@@ -55,14 +55,14 @@ def somar_lista(lista):
     return total
 
 def media_lista(lista):
-    # Uma lista vazia não tem média.
+    # se for vazia não tem média
     if len(lista) == 0:
         return None
 
     return somar_lista(lista) / len(lista)
 
 def adicionar_historico(historico, sequencia):
-    # Acrescenta a sequência à lista recebida.
+    # Add sequência à lista recebida
     historico.append(sequencia)
 
 historico = []
@@ -96,14 +96,14 @@ while True:
         else:
             entrada = input("Tabuada de qual número? ")
 
-        # Conta os caracteres que são dígitos.
+        # Conta os dígito
         digitos = 0
 
         for caractere in entrada:
             if caractere in "0123456789":
                 digitos = digitos + 1
 
-        # A entrada precisa ter somente dígitos e não ser vazia.
+        # A entrada so pode ter dígitos e não ser vazia
         if len(entrada) > 0 and digitos == len(entrada):
             n = int(entrada)
 
